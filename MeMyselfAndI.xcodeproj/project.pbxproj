@@ -13,6 +13,7 @@
 		100AD693200F694800F3FA15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 100AD692200F694800F3FA15 /* Assets.xcassets */; };
 		100AD696200F694800F3FA15 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 100AD694200F694800F3FA15 /* LaunchScreen.storyboard */; };
 		100AD699200F694800F3FA15 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 100AD698200F694800F3FA15 /* main.m */; };
+		10D0D7B12017AF9600B2447C /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10D0D7B02017AF9600B2447C /* GameViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		100AD695200F694800F3FA15 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		100AD697200F694800F3FA15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		100AD698200F694800F3FA15 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		10D0D7AF2017AF9600B2447C /* GameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
+		10D0D7B02017AF9600B2447C /* GameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +66,8 @@
 				100AD68C200F694800F3FA15 /* ViewController.h */,
 				100AD68D200F694800F3FA15 /* ViewController.m */,
 				100AD68F200F694800F3FA15 /* Main.storyboard */,
+				10D0D7AF2017AF9600B2447C /* GameViewController.h */,
+				10D0D7B02017AF9600B2447C /* GameViewController.m */,
 				100AD692200F694800F3FA15 /* Assets.xcassets */,
 				100AD694200F694800F3FA15 /* LaunchScreen.storyboard */,
 				100AD697200F694800F3FA15 /* Info.plist */,
@@ -142,6 +147,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10D0D7B12017AF9600B2447C /* GameViewController.m in Sources */,
 				100AD68E200F694800F3FA15 /* ViewController.m in Sources */,
 				100AD699200F694800F3FA15 /* main.m in Sources */,
 				100AD68B200F694800F3FA15 /* AppDelegate.m in Sources */,
