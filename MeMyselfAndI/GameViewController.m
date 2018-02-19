@@ -7,24 +7,20 @@
 //
 
 #import "GameViewController.h"
-//#import "colorThemes.m"
+#import "StartViewController.h"
+
 
 @interface GameViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *instText;
-@property (weak, nonatomic) IBOutlet UITextField *userNumber;
 @property (weak, nonatomic) IBOutlet UIButton *guessBtn;
 @property (weak, nonatomic) IBOutlet UIButton *playBtn;
 @property (weak, nonatomic) IBOutlet UILabel *answer;
-@property (weak, nonatomic) IBOutlet UILabel *whiteText;
-@property (weak, nonatomic) IBOutlet UILabel *grayText;
-@property (weak, nonatomic) IBOutlet UILabel *blackText;
-
-
 @property (nonatomic) NSInteger mysteryNumber;
-@property (nonatomic) NSInteger number;
 @property (weak, nonatomic) IBOutlet UISlider *slider;
-
-//@property colorThemes *color;
+@property (nonatomic) UIColor *myColor;
+@property (weak, nonatomic) IBOutlet UISlider *numberSlider;
+@property (weak, nonatomic) IBOutlet UILabel *numberValue;
+@property (nonatomic) int smallValue;
 
 @end
 
@@ -35,8 +31,11 @@
     self.playBtn.hidden = YES;
     self.guessBtn.hidden = NO;
     self.mysteryNumber = [self randomNumber];
+    [self setText];
     
-    // Do any additional setup after loading the view.
+    CGAffineTransform trans = CGAffineTransformMakeRotation(-M_PI_2);
+    self.numberSlider.transform = trans;
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -46,29 +45,35 @@
 
 
 -(NSInteger)randomNumber{
-    NSInteger mysteryNumber = (arc4random_uniform(100)+1);
+    int mysteryNumber = (arc4random_uniform(100)+1);
     return mysteryNumber;
 }
 
--(NSInteger)countNumber {
-    NSString *myText = self.userNumber.text;
-    NSInteger number = [myText integerValue];
-   
-    return number;
+-(int)setText{
+    float value = self.numberSlider.value;
+    int smallValue = (int)value;
+    NSString *valueText =[NSString stringWithFormat:@"%d", smallValue];
+    self.numberValue.text = valueText;
+    
+    return smallValue;
+}
+
+- (IBAction)changeValue:(id)sender {
+    [self setText];
 }
 
 - (IBAction)gueesNumber:(id)sender {
-    self.number = [self countNumber];
+    self.smallValue = [self setText];
     
-    if(self.number == self.mysteryNumber){
+    if(self.smallValue == self.mysteryNumber){
         self.answer.text = @"Grattis du gissade rätt!";
         self.guessBtn.hidden = YES;
         self.playBtn.hidden = NO;
     }
-    else if(self.number > self.mysteryNumber){
+    else if(self.smallValue > self.mysteryNumber){
         self.answer.text = @"För högt, gissa igen";
     }
-    else if(self.number < self.mysteryNumber){
+    else if(self.smallValue < self.mysteryNumber){
         self.answer.text = @"För lågt, gissa igen";
     }
  
@@ -82,30 +87,15 @@
     float sliderValue = self.slider.value;
 
     if(sliderValue < 1.5){
-        self.myColor = [UIColor colorWithRed:87.0/255.0f green:132.0/255.0f blue:163.0/255.0f alpha:0.7];
-        self.view.backgroundColor = self.myColor;
-    
+         self.view.backgroundColor = [UIColor colorWithRed:73.0/255.0f green:94.0/255.0f blue:133.0/255.0f alpha:1.0];
     }
     else if(sliderValue > 1.5 && sliderValue < 2.5){
-        self.myColor = [UIColor colorWithRed:127.0/255.0f green:103.0/255.0f blue:153.0/255.0f alpha:1.0];
-        self.view.backgroundColor = self.myColor;
+        self.view.backgroundColor = [UIColor colorWithRed:105.0/255.0f green:86.0/255.0f blue:127.0/255.0f alpha:1.0];
     }
     else if(sliderValue > 2.5){
-        self.myColor = [UIColor colorWithRed:255.0/255.0f green:139.0/255.0f blue:177.0/255.0f alpha:0.5];
-        self.view.backgroundColor = self.myColor;
+         self.view.backgroundColor =  [UIColor colorWithRed:148.0/255.0f green:81.0/255.0f blue:102.0/255.0f alpha:1.0];
     }
-    
 }
 
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
